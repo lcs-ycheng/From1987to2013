@@ -28,7 +28,7 @@ while 1 == 1 {
     }
     
     //test #3: Is the integer in the correct range?
-    if integerYear >= 0 && integerYear <= 10000 {
+    if integerYear < 0 || integerYear > 10000 {
         //if we got here, the number is NOT in correct range
         continue //go to top of the while loop
     }
@@ -44,26 +44,26 @@ while 1 == 1 {
 checkNextYear: while 1 == 1 {
     //check the next year
     validYear += 1
-
-//test the number is distinct digits or not
-var number : [Character : Int] = [:]
-// Create a phrase to inspect
-var numberOfNumber = String(validYear)
-
-// Iterate over each Character in the String
-for character in numberOfNumber {
     
-    // Keep track of how often a character occurs in a word
-    if number[character] == nil {
+    //test the number2 is distinct digits or not
+    var number : [Character : Int] = [:]
+    // Create a phrase to inspect
+    let numberOfNumber = String(validYear)
+    
+    // Iterate over each Character in the String
+    for character in numberOfNumber {
         
-        // This character didn't yet exist as a key in the dictionary, so create a key with this character and set the value to 1
-        number[character] = 1
-        
-    } else {
-        
-        continue checkNextYear
-        
-    }
+        // Keep track of how often a character occurs in a word
+        if number[character] == nil {
+            
+            // This character didn't yet exist as a key in the dictionary, so create a key with this character and set the value to 1
+            number[character] = 1
+            
+        } else {
+            
+            continue checkNextYear
+            
+        }
     }
     print(number)
     break
